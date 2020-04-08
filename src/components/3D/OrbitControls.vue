@@ -22,13 +22,16 @@ export default {
   mounted() {
     this.controls = new OrbitControls(this.camera, this.domElement);
     this.updateControls();
-    this.controls.addEventListener('change', this.callRenderer);
+    this.controls.addEventListener('change', this.render);
+  },
+  beforeDestroy() {
+    this.controls.removeEventListener('change', this.render);
   },
   methods: {
     updateControls() {
       this.controls.update();
     },
-    callRenderer() {
+    render() {
       EventBus.$emit('render');
     },
   },

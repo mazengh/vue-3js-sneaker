@@ -30,6 +30,12 @@ export default {
       camera: null,
     };
   },
+  watch: {
+    aspect(updatedAspect) {
+      this.camera.aspect = updatedAspect;
+      this.camera.updateProjectionMatrix();
+    },
+  },
   created() {
     this.camera = new THREE.PerspectiveCamera(this.fov, this.aspect, this.near, this.far);
     this.camera.position.set(this.position.x, this.position.y, this.position.z);
