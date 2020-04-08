@@ -9,6 +9,7 @@ export default {
     return {
       scene: null,
       dimensions: null,
+      container: null,
     };
   },
   computed: {
@@ -21,19 +22,29 @@ export default {
       this.scene.add(sceneObject);
       EventBus.$emit('render');
     },
+    setupDimensions() {
+      const containerWidth = this.container.clientWidth;
+      const containerHeight =
+        window.innerWidth > window.innerHeight
+          ? (containerWidth * window.innerHeight) / window.innerWidth
+          : (containerWidth * window.innerHeight) / window.innerWidth / 2;
+
+      this.dimensions = {
+        width: containerWidth,
+        height: containerHeight,
+      };
+    },
   },
   created() {
     this.scene = new THREE.Scene();
   },
   mounted() {
-    const container = document.querySelector('.renderer');
-    const containerWidth = container.clientWidth;
-    const containerHeight = (containerWidth * window.innerHeight) / window.innerWidth;
-
-    this.dimensions = {
-      width: containerWidth,
-      height: containerHeight,
-    };
+    this.container = document.querySelector('.renderer');
+    this.setupDimensions();
+    window.addEventListener('resize', this.setupDimensions);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.setupDimensions);
   },
   render() {
     return this.$scopedSlots.default({
