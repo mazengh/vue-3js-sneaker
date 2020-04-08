@@ -22,11 +22,7 @@ export default {
     },
   },
   created() {
-    const hemisphereLight = new THREE.HemisphereLight(
-      this.skyColor,
-      this.groundColor,
-      this.intensity,
-    );
+    const hemisphereLight = new THREE.HemisphereLight(this.skyColor, this.groundColor, this.intensity);
     hemisphereLight.position.set(this.position.x, this.position.y, this.position.z);
     this.$emit('created', hemisphereLight);
   },

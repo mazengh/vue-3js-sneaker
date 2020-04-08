@@ -16,10 +16,7 @@
     <div class="flex flex-row flex-wrap justify-start px-6">
       <color-btn class="bg-green-700" @click="setShoeProperty('shoeMeshColors', 0x2f855a)" />
       <color-btn class="bg-red-600" @click="setShoeProperty('shoeMeshColors', 0xe53e3e)" />
-      <color-btn
-        class="sneaker-options__random-btn"
-        @click="setRandomShoeColor('shoeMeshColors')"
-      />
+      <color-btn class="sneaker-options__random-btn" @click="setRandomShoeColor('shoeMeshColors')" />
       <color-btn class="border" @click="setShoeProperty('shoeMeshColors', 0xffffff)" />
     </div>
 
