@@ -32,3 +32,8 @@ npm run build
 ```
 npm run test:unit
 ```
+
+####
+
+Credits to thesidekick for creating the 3D model file 
+https://sketchfab.com/thesidekick
