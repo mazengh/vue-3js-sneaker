@@ -18,12 +18,4 @@ describe('three.js hemisphere light Vue component', () => {
     expect(componentWrapper.emitted('created')).toBeTruthy();
     expect(componentWrapper.emitted('created')[0][0].type).toEqual('HemisphereLight');
   });
-
-  // it('checks three.js perspective camera aspect updates', async () => {
-  //   expect(componentWrapper.vm.$data.camera.aspect).toEqual(1);
-  //   componentWrapper.setProps({ aspect: 1.3 });
-
-  //   await Vue.nextTick();
-  //   expect(componentWrapper.vm.$data.camera.aspect).toEqual(1.3);
-  // });
 });
