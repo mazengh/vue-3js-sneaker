@@ -18,7 +18,7 @@ describe('three.js scene Vue component', () => {
 
     const wrapper = mount({
       render() {
-        return <Scene scopedSlots={{ default: () => <div class="renderer1" style="width:800px"></div> }} />;
+        return <Scene scopedSlots={{ default: () => <div></div> }} />;
       },
     });
     const componentWrapper = wrapper.get(Scene);
